@@ -2,6 +2,7 @@ import { FlatList, StyleSheet, Text, View } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 
 import { Bubble } from '@/components/Bubble';
+import { InputBar } from '@/components/InputBar';
 import { SenderLabel } from '@/components/SenderLabel';
 import { chatHeader, messages, withGrouping } from '../data/messages';
 import { colors, gap, space, typography } from '../design/theme';
@@ -39,9 +40,8 @@ export default function ChatScreen() {
         )}
       />
 
-      <View style={styles.inputBar}>
-        <Text style={styles.placeholder}>Message</Text>
-      </View>
+      <InputBar>
+      </InputBar>
     </SafeAreaView>
   );
 }
@@ -49,7 +49,7 @@ export default function ChatScreen() {
 const styles = StyleSheet.create({
   screen: {
     flex: 1,
-    backgroundColor: colors.bg,
+    backgroundColor: colors.surface,
   },
   header: {
     backgroundColor: colors.surface,
@@ -66,17 +66,10 @@ const styles = StyleSheet.create({
   },
   messages: {
     flex: 1,
+    backgroundColor: colors.bg
   },
   messagesContent: {
     paddingHorizontal: space.s16,
     paddingVertical: space.s12,
-  },
-  inputBar: {
-    backgroundColor: colors.surface,
-    padding: space.s12,
-  },
-  placeholder: {
-    ...typography.message,
-    color: colors.textMuted,
   },
 });
